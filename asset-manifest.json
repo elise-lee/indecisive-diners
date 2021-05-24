@@ -1,23 +1,22 @@
 {
   "files": {
-    "main.css": "/indecisive-diners/static/css/main.9d5b29c0.chunk.css",
-    "main.js": "/indecisive-diners/static/js/main.77a0bfda.chunk.js",
-    "main.js.map": "/indecisive-diners/static/js/main.77a0bfda.chunk.js.map",
-    "runtime-main.js": "/indecisive-diners/static/js/runtime-main.edcb535f.js",
-    "runtime-main.js.map": "/indecisive-diners/static/js/runtime-main.edcb535f.js.map",
-    "static/js/2.89bef6dc.chunk.js": "/indecisive-diners/static/js/2.89bef6dc.chunk.js",
-    "static/js/2.89bef6dc.chunk.js.map": "/indecisive-diners/static/js/2.89bef6dc.chunk.js.map",
-    "static/js/3.b3bd5505.chunk.js": "/indecisive-diners/static/js/3.b3bd5505.chunk.js",
-    "static/js/3.b3bd5505.chunk.js.map": "/indecisive-diners/static/js/3.b3bd5505.chunk.js.map",
+    "main.css": "/indecisive-diners/static/css/main.ce4fadc5.chunk.css",
+    "main.js": "/indecisive-diners/static/js/main.807796f4.chunk.js",
+    "main.js.map": "/indecisive-diners/static/js/main.807796f4.chunk.js.map",
+    "runtime-main.js": "/indecisive-diners/static/js/runtime-main.acd970ac.js",
+    "runtime-main.js.map": "/indecisive-diners/static/js/runtime-main.acd970ac.js.map",
+    "static/js/2.6a267b98.chunk.js": "/indecisive-diners/static/js/2.6a267b98.chunk.js",
+    "static/js/2.6a267b98.chunk.js.map": "/indecisive-diners/static/js/2.6a267b98.chunk.js.map",
+    "static/js/3.d9329de2.chunk.js": "/indecisive-diners/static/js/3.d9329de2.chunk.js",
+    "static/js/3.d9329de2.chunk.js.map": "/indecisive-diners/static/js/3.d9329de2.chunk.js.map",
     "index.html": "/indecisive-diners/index.html",
-    "static/css/main.9d5b29c0.chunk.css.map": "/indecisive-diners/static/css/main.9d5b29c0.chunk.css.map",
-    "static/js/2.89bef6dc.chunk.js.LICENSE.txt": "/indecisive-diners/static/js/2.89bef6dc.chunk.js.LICENSE.txt",
-    "static/media/logo.6ce24c58.svg": "/indecisive-diners/static/media/logo.6ce24c58.svg"
+    "static/css/main.ce4fadc5.chunk.css.map": "/indecisive-diners/static/css/main.ce4fadc5.chunk.css.map",
+    "static/js/2.6a267b98.chunk.js.LICENSE.txt": "/indecisive-diners/static/js/2.6a267b98.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.edcb535f.js",
-    "static/js/2.89bef6dc.chunk.js",
-    "static/css/main.9d5b29c0.chunk.css",
-    "static/js/main.77a0bfda.chunk.js"
+    "static/js/runtime-main.acd970ac.js",
+    "static/js/2.6a267b98.chunk.js",
+    "static/css/main.ce4fadc5.chunk.css",
+    "static/js/main.807796f4.chunk.js"
   ]
 }
