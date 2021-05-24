@@ -1,6 +1,6 @@
 # Indecisive Diners 🍔
 
-http://elise-lee.github.io/indecisive-diners/
+Try it out here! http://elise-lee.github.io/indecisive-diners/
 
 **Development notes for Elise:**
 
