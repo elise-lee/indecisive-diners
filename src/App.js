@@ -6,20 +6,28 @@ import LocationInput from './components/LocationInput/LocationInput';
 import RestaurantCard from './components/RestaurantCard/RestaurantCard';
 
 // Styling
+import theme from "./utils/theme";
+import { ThemeProvider } from 'evergreen-ui';
 import './App.css';
 
 function App() {
   const [ restaurant, setRestaurant ] = useState("");
   const [ location, setLocation ] = useState("");
+  const [ showRestaurantCard, setShowRestaurantCard ] = useState(false)
 
   return (
-    <div>
+    <ThemeProvider value={theme}>
       <div id="page">
         <Header />
-        <LocationInput />
-        <RestaurantCard />
+        <LocationInput 
+          setShowRestaurantCard={setShowRestaurantCard}
+        />
+        <RestaurantCard
+          showRestaurantCard={showRestaurantCard}
+          setShowRestaurantCard={setShowRestaurantCard}
+        />
       </div>
-    </div>
+    </ThemeProvider>
   );
 }
 
