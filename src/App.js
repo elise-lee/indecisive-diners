@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import Header from './components/Header/Header';
 import LocationInput from './components/LocationInput/LocationInput';
 import RestaurantCard from './components/RestaurantCard/RestaurantCard';
+import Footer from './components/Footer/Footer';
 
 // Styling
 import theme from "./utils/theme";
@@ -11,8 +12,9 @@ import { ThemeProvider } from 'evergreen-ui';
 import './App.css';
 
 function App() {
-  const [ restaurant, setRestaurant ] = useState("");
-  const [ location, setLocation ] = useState("");
+  const [ restaurantName, setRestaurantName ] = useState("");
+  const [ restaurantImage, setRestaurantImage ] = useState("");
+  const [ restaurantCategories, setRestaurantCategories ] = useState([]);
   const [ showRestaurantCard, setShowRestaurantCard ] = useState(false)
 
   return (
@@ -20,12 +22,19 @@ function App() {
       <div id="page">
         <Header />
         <LocationInput 
+          setRestaurantName={setRestaurantName}
+          setRestaurantImage={setRestaurantImage}
+          setRestaurantCategories={setRestaurantCategories}
           setShowRestaurantCard={setShowRestaurantCard}
         />
         <RestaurantCard
+          restaurantName={restaurantName}
+          restaurantImage={restaurantImage}
+          restaurantCategories={restaurantCategories}
           showRestaurantCard={showRestaurantCard}
           setShowRestaurantCard={setShowRestaurantCard}
         />
+        <Footer />
       </div>
     </ThemeProvider>
   );

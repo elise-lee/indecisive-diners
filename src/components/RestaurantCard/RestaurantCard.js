@@ -1,25 +1,38 @@
 import React from 'react';
-import { Dialog } from "evergreen-ui";
+import { Badge, Dialog } from "evergreen-ui";
 import './RestaurantCard.css';
 
 function RestaurantCard({
+  restaurantName,
+  restaurantImage,
+  restaurantCategories,
   showRestaurantCard,
   setShowRestaurantCard
 }) {
   return (
-    <div id="restaurant-card">
-      <Dialog
-        topOffset={"30vh"}
+    <Dialog
+        topOffset={"10vh"}
         isShown={showRestaurantCard}
-        title="Tomate"
+        title={`What about ${restaurantName}?`}
         onCloseComplete={() => setShowRestaurantCard(false)}
-        hasCancel={false}
         hasClose={false}
-        confirmLabel="try again"
+        confirmLabel="View on Yelp"
       >
-        Yummy Tomate!
-      </Dialog>
-    </div>
+        <div id="restaurant-card">
+          <div id="restaurant-img-wrapper">
+            <img id="restaurant-img" src={restaurantImage} alt={restaurantName} />
+          </div>
+          <div id="restaurant-categories-wrapper">
+            {restaurantCategories.map(category => {
+              return (
+                <Badge color="neutral" key={category} marginRight={8}>
+                  # {category}
+                </Badge>
+              );
+            })}
+          </div>
+        </div>
+    </Dialog>
   );
 }
 

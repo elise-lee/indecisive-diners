@@ -1,5 +1,7 @@
 import { defaultTheme } from "evergreen-ui";
 
+const primary = '#f26346';
+
 const theme = {
     ...defaultTheme,
     components: {
@@ -10,7 +12,7 @@ const theme = {
           paddingX: 12,
           paddingY: 8,
           borderRadius: 5,
-          backgroundColor: '#f26346',
+          backgroundColor: primary,
           opacity: '0.8',
           transition: '0.5s',
           _hover: {
@@ -21,7 +23,7 @@ const theme = {
           },
         },
       },
-    },
+    }
   };
 
   export default theme;
