@@ -15,7 +15,6 @@ function RestaurantCard({
   onSearchClick,
 }) {
   const openYelp = () => {
-    console.log(restaurantYelp);
     const newWindow = window.open(restaurantYelp, '_blank', 'noopener,noreferrer');
     if (newWindow) {
       newWindow.opener = null;

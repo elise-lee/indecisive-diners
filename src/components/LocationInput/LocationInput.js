@@ -1,10 +1,11 @@
 import React from 'react';
-import { Button, SearchInput } from 'evergreen-ui';
+import { Button, SearchInput, Spinner } from 'evergreen-ui';
 import './LocationInput.css';
 
 function LocationInput({
   setLocation,
-  onSearchClick
+  onSearchClick,
+  showLoading
 }) {
 
   return (
@@ -13,11 +14,15 @@ function LocationInput({
         placeholder="First, what's your location?" 
         onChange={(e) => setLocation(e.target.value)} 
       />
-      <Button
-        marginLeft={12}
-        onClick={onSearchClick}>
-          Decide, please!
-      </Button>
+      {showLoading ? (
+        <Spinner size={24} marginLeft={12} /> 
+      ) : ( 
+        <Button
+          marginLeft={12}
+          onClick={onSearchClick}>
+           Decide, please!
+        </Button>
+      )}
     </div>
   );
 }

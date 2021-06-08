@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 // Components
 import Header from './components/Header/Header';
@@ -12,22 +12,27 @@ import { ThemeProvider } from 'evergreen-ui';
 import './App.css';
 
 function App() {
+  // Restaurant information
   const [ restaurantName, setRestaurantName ] = useState("");
   const [ restaurantImage, setRestaurantImage ] = useState("");
   const [ restaurantCategories, setRestaurantCategories ] = useState([]);
   const [ restaurantYelp, setRestaurantYelp ] = useState("https://yelp.com");
-  const [ restaurantCoordinates, setRestaurantCoordinates ] = useState([0,0])
+  const [ restaurantCoordinates, setRestaurantCoordinates ] = useState([0,0]);
+
+  // User input
   const [ location, setLocation ] = useState("");
+
+  // Conditional rendering
   const [ showRestaurantCard, setShowRestaurantCard ] = useState(false);
+  const [ showLoading, setShowLoading ] = useState(false);
 
   const onSearchClick = () => {
     if (location) {
-      const API_URL = `https://indecisive-diners-server.herokuapp.com/${location}`
-      console.log(API_URL);
+      setShowLoading(true);
+      const API_URL = `${SERVER_BASE_URL}/${location}`
       fetch(API_URL)
         .then(response => response.json())
         .then(restaurant => {
-          console.log(restaurant);
           setRestaurantName(restaurant.name);
           setRestaurantImage(restaurant.image_url);
           setRestaurantCategories([
@@ -39,11 +44,18 @@ function App() {
             restaurant.coordinates.latitude,
             restaurant.coordinates.longitude
           ]);
-          console.log(restaurant.url)
+          setShowLoading(false);
           setShowRestaurantCard(true);
         });
     }
   };
+
+  // Wake up Heroku server
+  const SERVER_BASE_URL = "https://indecisive-diners-server.herokuapp.com";
+  useEffect(() => {
+    fetch(`${SERVER_BASE_URL}/evanston`)
+        .then(console.log("heroku awake"));
+  }, [ SERVER_BASE_URL ]);
 
   return (
     <ThemeProvider value={theme}>
@@ -52,6 +64,7 @@ function App() {
         <LocationInput 
           setLocation={setLocation}
           onSearchClick={onSearchClick}
+          showLoading={showLoading}
         />
         <RestaurantCard
           onSearchClick={onSearchClick}
@@ -59,7 +72,7 @@ function App() {
           restaurantImage={restaurantImage}
           restaurantCategories={restaurantCategories}
           restaurantYelp={restaurantYelp}
-          restaurantCoordinates={restaurantCoordinates}
+          rstaurantCoordinates={restaurantCoordinates}
           showRestaurantCard={showRestaurantCard}
           setShowRestaurantCard={setShowRestaurantCard}
         />
