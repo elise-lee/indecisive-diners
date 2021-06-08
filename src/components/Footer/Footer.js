@@ -5,8 +5,7 @@ import './Footer.css';
 function Footer() {
   return (
     <div id="footer">
-      <Text>made with ♥ by <Link href="https://eliselee.dev"> elise</Link>
-      </Text>
+      <Text>made with ♥ by <Link href="https://eliselee.dev"> elise</Link></Text>
     </div>
   );
 }

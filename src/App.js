@@ -17,7 +17,6 @@ function App() {
   const [ restaurantImage, setRestaurantImage ] = useState("");
   const [ restaurantCategories, setRestaurantCategories ] = useState([]);
   const [ restaurantYelp, setRestaurantYelp ] = useState("https://yelp.com");
-  const [ restaurantCoordinates, setRestaurantCoordinates ] = useState([0,0]);
 
   // User input
   const [ location, setLocation ] = useState("");
@@ -33,6 +32,7 @@ function App() {
       fetch(API_URL)
         .then(response => response.json())
         .then(restaurant => {
+          console.log(restaurant)
           setRestaurantName(restaurant.name);
           setRestaurantImage(restaurant.image_url);
           setRestaurantCategories([
@@ -40,10 +40,6 @@ function App() {
             `${restaurant.rating} stars on yelp`
           ]);
           setRestaurantYelp(restaurant.url);
-          setRestaurantCoordinates([
-            restaurant.coordinates.latitude,
-            restaurant.coordinates.longitude
-          ]);
           setShowLoading(false);
           setShowRestaurantCard(true);
         });
@@ -72,7 +68,6 @@ function App() {
           restaurantImage={restaurantImage}
           restaurantCategories={restaurantCategories}
           restaurantYelp={restaurantYelp}
-          rstaurantCoordinates={restaurantCoordinates}
           showRestaurantCard={showRestaurantCard}
           setShowRestaurantCard={setShowRestaurantCard}
         />

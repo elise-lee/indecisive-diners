@@ -1,5 +1,5 @@
 import React from 'react';
-import { Badge, Dialog, Heading } from "evergreen-ui";
+import { Badge, Dialog, Heading, Text, Tooltip } from "evergreen-ui";
 import { ReactComponent as YelpIcon } from "./YELP_ICON.svg";
 import { ReactComponent as GoogleMapsIcon } from "./GOOGLE_MAPS_ICON.svg";
 import './RestaurantCard.css';
@@ -9,7 +9,6 @@ function RestaurantCard({
   restaurantImage,
   restaurantCategories,
   restaurantYelp,
-  restaurantCoordinates,
   showRestaurantCard,
   setShowRestaurantCard,
   onSearchClick,
@@ -23,7 +22,7 @@ function RestaurantCard({
 
   const openGoogleMaps = () => {
     const mapsURL = 
-      `https://www.google.com/maps/dir/?api=1&destination=${restaurantCoordinates[0]},${restaurantCoordinates[1]}`
+      `https://www.google.com/maps/dir/?api=1&destination=${restaurantName}`
     const newWindow = window.open(mapsURL, '_blank', 'noopener,noreferrer');
     if (newWindow) {
       newWindow.opener = null;
@@ -51,8 +50,12 @@ function RestaurantCard({
               What about {restaurantName}?
             </Heading>
             <div id="icons-wrapper">
-              <YelpIcon className="icon" onClick={openYelp} />
-              <GoogleMapsIcon className="icon" onClick={openGoogleMaps} />
+              <Tooltip content={<Text>Get directions</Text>} appearance="card">
+                <GoogleMapsIcon className="icon" onClick={openGoogleMaps} />
+              </Tooltip>
+              <Tooltip content={<Text>Visit Yelp</Text>} appearance="card">
+                <YelpIcon className="icon" onClick={openYelp} />
+              </Tooltip>
             </div>
           </div>
           <div id="restaurant-img-wrapper">
