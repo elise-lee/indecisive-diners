@@ -15,22 +15,45 @@ function App() {
   const [ restaurantName, setRestaurantName ] = useState("");
   const [ restaurantImage, setRestaurantImage ] = useState("");
   const [ restaurantCategories, setRestaurantCategories ] = useState([]);
-  const [ showRestaurantCard, setShowRestaurantCard ] = useState(false)
+  const [ restaurantYelp, setRestaurantYelp ] = useState("https://yelp.com");
+  const [ location, setLocation ] = useState("");
+  const [ showRestaurantCard, setShowRestaurantCard ] = useState(false);
+
+  const onSearchClick = () => {
+    if (location) {
+      const API_URL = `https://indecisive-diners-server.herokuapp.com/${location}`
+      console.log(API_URL);
+      fetch(API_URL)
+        .then(response => response.json())
+        .then(restaurant => {
+          console.log(restaurant);
+          setRestaurantName(restaurant.name);
+          setRestaurantImage(restaurant.image_url);
+          setRestaurantCategories([
+            ...restaurant.categories.map(category => category.title),
+            `${restaurant.rating} stars on yelp`
+          ]);
+          setRestaurantYelp(restaurant.url);
+          console.log(restaurant.url)
+          setShowRestaurantCard(true);
+        });
+    }
+  };
 
   return (
     <ThemeProvider value={theme}>
       <div id="page">
         <Header />
         <LocationInput 
-          setRestaurantName={setRestaurantName}
-          setRestaurantImage={setRestaurantImage}
-          setRestaurantCategories={setRestaurantCategories}
-          setShowRestaurantCard={setShowRestaurantCard}
+          setLocation={setLocation}
+          onSearchClick={onSearchClick}
         />
         <RestaurantCard
+          onSearchClick={onSearchClick}
           restaurantName={restaurantName}
           restaurantImage={restaurantImage}
           restaurantCategories={restaurantCategories}
+          restaurantYelp={restaurantYelp}
           showRestaurantCard={showRestaurantCard}
           setShowRestaurantCard={setShowRestaurantCard}
         />
