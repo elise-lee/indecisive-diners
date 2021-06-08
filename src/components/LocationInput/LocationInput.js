@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Button, SearchInput } from 'evergreen-ui';
 import './LocationInput.css';
 

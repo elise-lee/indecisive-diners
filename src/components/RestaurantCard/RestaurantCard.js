@@ -9,6 +9,7 @@ function RestaurantCard({
   restaurantImage,
   restaurantCategories,
   restaurantYelp,
+  restaurantCoordinates,
   showRestaurantCard,
   setShowRestaurantCard,
   onSearchClick,
@@ -16,6 +17,15 @@ function RestaurantCard({
   const openYelp = () => {
     console.log(restaurantYelp);
     const newWindow = window.open(restaurantYelp, '_blank', 'noopener,noreferrer');
+    if (newWindow) {
+      newWindow.opener = null;
+    }
+  }
+
+  const openGoogleMaps = () => {
+    const mapsURL = 
+      `https://www.google.com/maps/dir/?api=1&destination=${restaurantCoordinates[0]},${restaurantCoordinates[1]}`
+    const newWindow = window.open(mapsURL, '_blank', 'noopener,noreferrer');
     if (newWindow) {
       newWindow.opener = null;
     }
@@ -42,8 +52,8 @@ function RestaurantCard({
               What about {restaurantName}?
             </Heading>
             <div id="icons-wrapper">
-              <YelpIcon class="icon" onClick={openYelp} />
-              <GoogleMapsIcon class="icon" />
+              <YelpIcon className="icon" onClick={openYelp} />
+              <GoogleMapsIcon className="icon" onClick={openGoogleMaps} />
             </div>
           </div>
           <div id="restaurant-img-wrapper">

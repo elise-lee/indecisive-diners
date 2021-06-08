@@ -16,6 +16,7 @@ function App() {
   const [ restaurantImage, setRestaurantImage ] = useState("");
   const [ restaurantCategories, setRestaurantCategories ] = useState([]);
   const [ restaurantYelp, setRestaurantYelp ] = useState("https://yelp.com");
+  const [ restaurantCoordinates, setRestaurantCoordinates ] = useState([0,0])
   const [ location, setLocation ] = useState("");
   const [ showRestaurantCard, setShowRestaurantCard ] = useState(false);
 
@@ -34,6 +35,10 @@ function App() {
             `${restaurant.rating} stars on yelp`
           ]);
           setRestaurantYelp(restaurant.url);
+          setRestaurantCoordinates([
+            restaurant.coordinates.latitude,
+            restaurant.coordinates.longitude
+          ]);
           console.log(restaurant.url)
           setShowRestaurantCard(true);
         });
@@ -54,6 +59,7 @@ function App() {
           restaurantImage={restaurantImage}
           restaurantCategories={restaurantCategories}
           restaurantYelp={restaurantYelp}
+          restaurantCoordinates={restaurantCoordinates}
           showRestaurantCard={showRestaurantCard}
           setShowRestaurantCard={setShowRestaurantCard}
         />
