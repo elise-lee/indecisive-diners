@@ -56,22 +56,24 @@ function App() {
   return (
     <ThemeProvider value={theme}>
       <div id="page">
-        <Header />
-        <LocationInput 
-          setLocation={setLocation}
-          onSearchClick={onSearchClick}
-          showLoading={showLoading}
-        />
-        <RestaurantCard
-          onSearchClick={onSearchClick}
-          restaurantName={restaurantName}
-          restaurantImage={restaurantImage}
-          restaurantCategories={restaurantCategories}
-          restaurantYelp={restaurantYelp}
-          showRestaurantCard={showRestaurantCard}
-          setShowRestaurantCard={setShowRestaurantCard}
-        />
-        <Footer />
+        <div id="main">
+          <Header />
+          <LocationInput 
+            setLocation={setLocation}
+            onSearchClick={onSearchClick}
+            showLoading={showLoading}
+          />
+          <RestaurantCard
+            onSearchClick={onSearchClick}
+            restaurantName={restaurantName}
+            restaurantImage={restaurantImage}
+            restaurantCategories={restaurantCategories}
+            restaurantYelp={restaurantYelp}
+            showRestaurantCard={showRestaurantCard}
+            setShowRestaurantCard={setShowRestaurantCard}
+          />
+          <Footer />
+        </div>
       </div>
     </ThemeProvider>
   );
